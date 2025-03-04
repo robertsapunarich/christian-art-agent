@@ -1,7 +1,9 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    /* Base compiler options for all workspaces */
     "target": "es2021",
+    "lib": ["es2021", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
     "module": "es2022",
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
@@ -14,5 +16,6 @@
     "strict": true,
     "skipLibCheck": true
   },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]
 }

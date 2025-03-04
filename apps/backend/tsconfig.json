@@ -1,9 +1,13 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    /* Base compiler options for all workspaces */
     "target": "es2021",
+    "lib": ["es2021"],
     "module": "es2022",
     "moduleResolution": "Bundler",
+    "types": [
+      "@cloudflare/workers-types/2023-07-01"
+    ],
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": false,
@@ -14,5 +18,6 @@
     "strict": true,
     "skipLibCheck": true
   },
+  "include": ["src/**/*.ts", "worker-configuration.d.ts"],
   "exclude": ["node_modules"]
 }

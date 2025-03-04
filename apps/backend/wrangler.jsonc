@@ -1,0 +1,51 @@
+{
+  "name": "christian-art-agent-backend",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-02-11",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Worker AI binding
+  "ai": {
+    "binding": "AI"
+  },
+
+  // Browser Rendering API for image search
+  "browser": [
+    {
+      "binding": "BROWSER"
+    }
+  ],
+
+  // KV namespace for caching results
+  "kv_namespaces": [
+    {
+      "binding": "ART_CACHE",
+      "id": "${KV_NAMESPACE_ID}",
+      "preview_id": "${KV_NAMESPACE_PREVIEW_ID}"
+    }
+  ],
+
+  // Durable Object for the agent
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CHRISTIAN_ART_AGENT",
+        "class_name": "ChristianArtAgent"
+      }
+    ]
+  },
+
+  // Migrations for the agent's Durable Object
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["ChristianArtAgent"]
+    }
+  ],
+
+  // Enable observability
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
